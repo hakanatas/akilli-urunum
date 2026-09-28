@@ -1,0 +1,103 @@
+/* ─────────────────────────────────────────────────────────────
+   AKILLI ÜRÜNÜM — BTY.6.6.3 (senaryo)
+   Her vuruş bir altyazıdır: tr, en, note (öğretmen için seslendirme).
+   Değiştirdikten sonra: npm run build
+   ───────────────────────────────────────────────────────────── */
+BF.defineFilm({
+  meta: {
+    slug: 'akilli-urunum', title: 'Akıllı Ürünüm', titleEn: 'My Smart Product', code: 'BTY.6.6.3',
+    outcomeEn: 'Creating an AI-supported product in a block-based environment',
+    summary: 'Blok tabanlı ortamda yapay zekâ destekli bir ürün geliştirilir: kameraya gösterilen atığı tanıyıp doğru kutuya yönlendiren "Akıllı Geri Dönüşüm Yardımcısı". Ürünün gereksinimleri (kamera girişi, sesli yönlendirme, kolay kullanım, gizlilik) belirlenir. Görüntü tanıma, ses tanıma ve metni sese çevirme gibi yapay zekâ eklentilerinden uygun araçlar seçilir. Ürün bloklarla oluşturulur, test edilir, hatası düzeltilir ve belirlenen ölçütleri karşılayacak şekilde çalışır hâle getirilir.',
+    summaryEn: 'A block-based AI product is built: a "Smart Recycling Helper" that recognises an item on camera and guides the user to the right bin. Requirements are set, AI extensions (image recognition, speech recognition, text-to-speech) are chosen, the product is built, tested, fixed and brought up to the agreed criteria.',
+    blurb: 'Gereksinimler, yapay zekâ eklentileri, bloklarla ürün oluşturmak ve ölçütlere göre çalıştırmak.',
+    posterAlt: 'Başlık ve Karo; çevresinde yapay zekâ, kamera, bloklar ve geri dönüşüm karoları',
+  },
+  scenes: [
+    { type: 'intro', icons: [{ icon: 'ai', c: 'kobalt' }, { icon: 'webcam', c: 'mercan' }, { icon: 'blocks', c: 'safran' }, { icon: 'trash', c: 'zumrut' }, { icon: 'voice', c: 'mor' }, { icon: 'faceScan', c: 'turkuaz' }, { icon: 'model', c: 'mor' }, { icon: 'rubric', c: 'kobalt' }],
+      beats: [
+        { tr: 'Modelimiz hazır. Şimdi onu bir ürüne dönüştürelim!', en: 'Our model is ready. Now let\'s turn it into a product!', extra: 1,
+          note: 'Karo\'nun takımı atıkları tanıyan bir model eğitmişti. Şimdi bu modeli kullanan, herkesin kolayca kullanabileceği bir ürün yapmak istiyorlar.' },
+        { tr: 'Akıllı Geri Dönüşüm Yardımcısı', en: 'The Smart Recycling Helper',
+          note: 'Ürünün adı: Akıllı Geri Dönüşüm Yardımcısı. Kameraya atığı gösteriyorsun, sana hangi kutuya atacağını söylüyor.' },
+      ] },
+    { type: 'cards', name: 'Gereksinimler', en: 'Requirements', desc: 'Ürünün ihtiyaç duyduğu özellikler.', out: 'a',
+      cards: [
+        { word: 'KAMERA', def: 'Atığı kameraya göstermek', icon: 'webcam', c: 'mercan' },
+        { word: 'SESLİ YANIT', def: '"Plastik: sarı kutu!" diye söylemek', icon: 'voice', c: 'mor' },
+        { word: 'KOLAYLIK', def: 'Tek düğme, büyük yazı', icon: 'handshake', c: 'zumrut' },
+      ],
+      result: { word: 'GEREKSİNİMLER', c: 'safran', chips: ['gizlilik: görüntü kaydedilmez', 'hızlı cevap'], line: 'Ürün kimin için, ne yapmalı?' },
+      beats: [
+        { tr: 'Kamera girişi: atığı göster', en: 'Camera input: show the item',
+          note: 'Kullanıcı atığı kameraya gösterecek. Bu, ürünün girdisidir.' },
+        { tr: 'Sesli yönlendirme: kutuyu söyle', en: 'Voice guidance: say which bin',
+          note: 'Ürün sonucu sesli söyleyecek: Plastik, sarı kutu! Okuma bilmeyen küçük kardeşler bile kullanabilir.' },
+        { tr: 'Kolay kullanım: tek düğme', en: 'Easy to use: one button',
+          note: 'Ekranda tek bir düğme ve büyük yazılar olacak.' },
+        { tr: 'Gizlilik ve hız da gereksinim', en: 'Privacy and speed are requirements too', extra: 1,
+          note: 'Kameradan alınan görüntüler kaydedilmeyecek; bu gizlilik için önemli. Cevap da hızlı gelmeli.' },
+      ] },
+    { type: 'sort', name: 'Araçları seç', en: 'Choose the tools', desc: 'Yapay zekâ eklentileri ve araç gereçler.', out: 'b',
+      bins: [{ label: 'KULLANACAĞIZ', c: 'zumrut' }, { label: 'GEREK YOK', c: 'safran' }],
+      items: [
+        { icon: 'faceScan', name: 'Görüntü tanıma eklentisi', bin: 0, beat: 1 },
+        { icon: 'voice', name: 'Metni sese çevirme eklentisi', bin: 0, beat: 1 },
+        { icon: 'webcam', name: 'Kamera', bin: 0, beat: 1 },
+        { icon: 'translate', name: 'Çeviri eklentisi', bin: 1, beat: 2 },
+        { icon: 'recommend', name: 'Öneri sistemi', bin: 1, beat: 2 },
+      ],
+      beats: [
+        { tr: 'Hangi eklentiler gerekli?', en: 'Which extensions do we need?',
+          note: 'Blok tabanlı ortamlarda görüntü tanıma, ses tanıma, çeviri gibi yapay zekâ eklentileri vardır. Gereksinimlerimize bakarak seçeriz.' },
+        { tr: 'Görüntü tanıma, sese çevirme, kamera', en: 'Image recognition, text-to-speech, camera',
+          note: 'Atığı tanımak için görüntü tanıma, sonucu söylemek için metni sese çevirme eklentisine ve kameraya ihtiyacımız var.' },
+        { tr: 'Çeviri ve öneri bu ürün için gereksiz', en: 'Translation and recommendations aren\'t needed here', extra: 1,
+          note: 'Çeviri ve öneri sistemi bu ürünün gereksinimlerinde yok. Gereksiz araç eklemeyiz.' },
+      ] },
+    { type: 'code', name: 'Oluştur ve çalıştır', en: 'Build and run', desc: 'Yapay zekâ blokları ile ürünü oluşturmak, test etmek ve düzeltmek.', out: 'c, ç',
+      panelTitle: 'Kod', stageTitle: 'Geri dönüşüm alanı',
+      grid: { w: 5, h: 3, start: [0, 1], dir: 'E', goal: [3, 1], items: [[1, 0, 'doc'], [3, 0, 'water'], [4, 2, 'lightbulb']] },
+      blocks: [
+        { text: 'düğmeye basılınca', kind: 'event' },
+        { text: 'kameradan görüntü al', kind: 'ai', op: {} },
+        { text: 'görüntüyü tanı: plastik', kind: 'ai', op: { say: 'Plastik!' } },
+        { text: 'eğer sonuç = plastik ise', kind: 'control', op: {} },
+        { text: '1 adım ilerle', kind: 'motion', ind: 1, op: { move: 1 } },
+        { text: '"Sarı kutu!" diye seslendir', kind: 'ai', ind: 1, op: { say: 'Sarı kutu!' } },
+      ],
+      beats: [
+        { tr: 'Blokları diz: kamera, tanı, karar ver, söyle', en: 'Place the blocks: camera, recognise, decide, speak', show: 6, extra: 2,
+          note: 'Blokları diziyoruz: düğmeye basılınca kameradan görüntü al, yapay zekâ ile tanı, eğer plastikse sarı kutuya yönlendir ve sesli söyle.' },
+        { tr: 'Test: yanlış kutuya gitti!', en: 'Test: it went to the wrong bin!', run: true, extra: 3,
+          note: 'Test edelim. Model plastiği doğru tanıdı ama yardımcı sarı kutuya kadar gitmedi. Bir adım eksik!', karo: { mood: 'worried', caret: '?' } },
+        { tr: 'Hata: adım sayısı eksik', en: 'Bug: a step is missing', bug: { i: 4, text: '1 adım ilerle' },
+          note: 'Hatayı bulduk: sarı kutu üç kare ötede, ama kod yalnızca bir adım ilerliyor.' },
+        { tr: 'Düzelt ve yeniden test et', en: 'Fix it and test again', fix: { i: 4, text: '3 adım ilerle', op: { move: 3 } }, run: true, extra: 5,
+          note: 'Bloğu "3 adım ilerle" yapıyoruz ve yeniden test ediyoruz. Plastik! Sarı kutu! Ürün çalışıyor.' },
+      ] },
+    { type: 'judge', name: 'Ölçütleri karşılıyor mu?', en: 'Does it meet the criteria?', desc: 'Ürün belirlenen ölçütlere göre denetlenir.', out: 'ç', labels: { ok: 'karşılıyor', no: 'geliştir' },
+      beats: [
+        { tr: 'Doğru kutuya yönlendiriyor mu?', en: 'Does it point to the right bin?',
+          note: 'Yirmi atıkla denedik; on dokuzunu doğru kutuya yönlendirdi. Ölçütü karşılıyor.',
+          row: { icon: 'target', text: '20 atığın 19\'unu doğru kutuya yönlendirdi', ok: true, why: 'Doğruluk yüksek' } },
+        { tr: 'Gizlilik: görüntüler kaydediliyor mu?', en: 'Privacy: are images being saved?',
+          note: 'İlk sürümde kameradan alınan her görüntü klasöre kaydediliyordu. Gizlilik gereksinimine aykırı; bu bloğu kaldırmalıyız.',
+          row: { icon: 'eyeOff', text: 'İlk sürüm her görüntüyü klasöre kaydediyordu', ok: false, why: 'Kaydetme bloğunu kaldır' } },
+        { tr: 'Küçükler de kullanabiliyor mu?', en: 'Can younger children use it?',
+          note: 'Birinci sınıftaki kardeşler tek düğmeye basıp sesli yönlendirmeyle atıklarını doğru kutuya attı. Karşılıyor.',
+          row: { icon: 'voice', text: '1. sınıflar sesli yönlendirmeyle kolayca kullandı', ok: true, why: 'Kolay ve erişilebilir' } },
+      ] },
+    { type: 'summary',
+      lines: [
+        { icon: 'rubric', c: 'kobalt', text: 'Gereksinimleri belirle' },
+        { icon: 'faceScan', c: 'turkuaz', text: 'Uygun yapay zekâ eklentilerini seç' },
+        { icon: 'check', c: 'zumrut', text: 'Oluştur, test et, ölçütlere göre çalıştır' },
+      ],
+      beats: [
+        { tr: 'Aklında kalsın: akıllı ürün, insana yardım eder', en: 'Remember: a smart product helps people',
+          note: 'Aklında kalsın: yapay zekâ destekli bir ürün, gerçek bir problemi çözdüğünde ve güvenli olduğunda değerlidir.' },
+        { tr: 'Senin akıllı ürünün ne olacak?', en: 'What will your smart product be?',
+          note: 'Bilişim yolculuğunda çok şey öğrendin. Şimdi sıra senin akıllı ürününde!' },
+      ] },
+  ],
+});
